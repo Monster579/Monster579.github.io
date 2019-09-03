@@ -14,21 +14,27 @@
     
     
     
-    <title>第一次尝试 | </title>
+    <title>mysql UNIQUE唯一约束 | </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content>
-    <meta property="og:type" content="article">
-<meta property="og:title" content="第一次尝试">
-<meta property="og:url" content="http://yoursite.com/2018/03/08/第一次尝试/index.html">
+    <meta name="keywords" content="索引">
+    <meta name="description" content="mysql数据库添加唯一约束 唯一约束与主键的关系 主键：不能为空  一张表只能有一个主键 唯一约束： 可以为null值  可以有多个唯一约束   创建表如下 12345678CREATE TABLE `user` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(40) CHARACTER SET latin1 DEFAULT NU">
+<meta name="keywords" content="索引">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql UNIQUE唯一约束">
+<meta property="og:url" content="http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="mysql数据库添加唯一约束 唯一约束与主键的关系 主键：不能为空  一张表只能有一个主键 唯一约束： 可以为null值  可以有多个唯一约束   创建表如下 12345678CREATE TABLE `user` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(40) CHARACTER SET latin1 DEFAULT NU">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-20T03:50:22.811Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/26/ZenshT.png">
+<meta property="og:updated_time" content="2019-09-03T14:43:19.246Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一次尝试">
+<meta name="twitter:title" content="mysql UNIQUE唯一约束">
+<meta name="twitter:description" content="mysql数据库添加唯一约束 唯一约束与主键的关系 主键：不能为空  一张表只能有一个主键 唯一约束： 可以为null值  可以有多个唯一约束   创建表如下 12345678CREATE TABLE `user` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(40) CHARACTER SET latin1 DEFAULT NU">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/06/26/ZenshT.png">
     
         <link rel="alternate" type="application/atom+xml" title href="/atom.xml">
     
@@ -55,7 +61,7 @@
           <img src="/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname">小小程序猿</h5>
+          <h5 class="nickname">我说我不会</h5>
           <a href="mailto:cnlsyuuu@163.com" title="cnlsyuuu@163.com" class="mail">cnlsyuuu@163.com</a>
         </hgroup>
       </div>
@@ -123,7 +129,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">第一次尝试</div>
+        <div class="flex-col header-title ellipsis">mysql UNIQUE唯一约束</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -145,13 +151,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">第一次尝试</h1>
+        <h1 class="title">mysql UNIQUE唯一约束</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-03-08T07:48:47.000Z" itemprop="datePublished" class="page-time">
-  2018-03-08
+                <time datetime="2019-07-04T13:20:00.000Z" itemprop="datePublished" class="page-time">
+  2019-07-04
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/mysql/">mysql</a></li></ul>
 
             
         </h5>
@@ -165,15 +173,24 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mysql数据库添加唯一约束"><span class="post-toc-number">1.</span> <span class="post-toc-text">mysql数据库添加唯一约束</span></a></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-第一次尝试" class="post-article article-type-post fade" itemprop="blogPost">
+
+<article id="post-mysql-UNIQUE唯一约束" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">第一次尝试</h1>
+        <h1 class="post-card-title">mysql UNIQUE唯一约束</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-03-08 15:48:47" datetime="2018-03-08T07:48:47.000Z" itemprop="datePublished">2018-03-08</time>
+            <time class="post-time" title="2019-07-04 21:20:00" datetime="2019-07-04T13:20:00.000Z" itemprop="datePublished">2019-07-04</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/mysql/">mysql</a></li></ul>
+
 
 
             
@@ -184,27 +201,37 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <h3 id="mysql数据库添加唯一约束"><a href="#mysql数据库添加唯一约束" class="headerlink" title="mysql数据库添加唯一约束"></a>mysql数据库添加唯一约束</h3><blockquote>
+<p>唯一约束与主键的关系<br> 主键：不能为空  一张表只能有一个主键<br> 唯一约束： 可以为null值  可以有多个唯一约束</p>
+</blockquote>
+<p> 创建表如下<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `user` (</span><br><span class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `name` varchar(40) CHARACTER SET latin1 DEFAULT NULL,</span><br><span class="line">  `password` varchar(40) CHARACTER SET latin1 DEFAULT NULL,</span><br><span class="line">  `email` varchar(60) CHARACTER SET latin1 DEFAULT NULL,</span><br><span class="line">  `birthday` date DEFAULT NULL,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure></p>
+<p> 两种建立方式 </p>
+<ol>
+<li><p>建表时建立</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`name` varchar(40) CHARACTER SET latin1 DEFAULT NULL unique,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后续添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table `user` add UNIQUE(name)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>查看唯一约束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show keys from `user`</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://s2.ax1x.com/2019/06/26/ZenshT.png" alt="ZenshT.png" title>
+                </div>
+                <div class="image-caption">ZenshT.png</div>
+            </figure>
+<p>删除唯一约束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop index name on user;</span><br></pre></td></tr></table></figure></p>
+
         </div>
 
         <blockquote class="post-copyright">
     
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-03-20T03:50:22.811Z" itemprop="dateUpdated">2019-03-20 11:50:22</time>
-</span><br>
-
-
-        
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/08/第一次尝试/" target="_blank" rel="external">http://yoursite.com/2018/03/08/第一次尝试/</a>
-        
-    </div>
-    
     <footer>
         <a href="http://yoursite.com">
-            <img src="/img/avatar.jpg" alt="小小程序猿">
-            小小程序猿
+            <img src="/img/avatar.jpg" alt="我说我不会">
+            我说我不会
         </a>
     </footer>
 </blockquote>
@@ -218,6 +245,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/索引/">索引</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -226,7 +255,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/08/第一次尝试/&title=《第一次尝试》 — null&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/&title=《mysql UNIQUE唯一约束》 — null&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -236,22 +265,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/08/第一次尝试/&title=《第一次尝试》 — null&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/&title=《mysql UNIQUE唯一约束》 — null&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/08/第一次尝试/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第一次尝试》 — null&url=http://yoursite.com/2018/03/08/第一次尝试/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql UNIQUE唯一约束》 — null&url=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/08/第一次尝试/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -274,13 +303,20 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/03/08/hello-world/" id="post-prev" class="post-nav-link">
+      <a href="/2019/07/07/数据库索引/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Hello World</h4>
+        <h4 class="title">数据库索引</h4>
       </a>
     </div>
   
 
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/03/show-index-字段描述/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">show index 字段描述</h4>
+      </a>
+    </div>
   
 </nav>
 
@@ -359,7 +395,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>小小程序猿 &copy; 2015 - 2019</span>
+        <p><span>我说我不会 &copy; 2015 - 2019</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -377,7 +413,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/08/第一次尝试/&title=《第一次尝试》 — null&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/&title=《mysql UNIQUE唯一约束》 — null&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -387,22 +423,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/08/第一次尝试/&title=《第一次尝试》 — null&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/&title=《mysql UNIQUE唯一约束》 — null&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/08/第一次尝试/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第一次尝试》 — null&url=http://yoursite.com/2018/03/08/第一次尝试/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql UNIQUE唯一约束》 — null&url=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/08/第一次尝试/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/07/04/mysql-UNIQUE唯一约束/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -413,7 +449,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3ay3LDIAwFUP//T6czXXVRkyvAfYjDKuO0hOOFRki6rni9Ptf489cnyfPXcF1PLAwMjH/LSLa72zo5dHKs8e9GVAwMjAMYeZDdGwnHryw5GwYGBsY4scu/nTsiBgYGxq7tqn95l0piYGBgjBlJujZXaMuTxXEo33YXx8DA+IeMXY2BJz7/Qn8DAwPjjzFeU2v9FeTBPToPBgZGa0Y1pRtfIxP2ON2cux5jYGCcwxgfbj2BG+9c3f824GJgYLRjVAcd8rHUaiBeCscYGBgHMOZaj3uTv6QJcfsEAwOjNeOJNK5aRNtVpMPAwOjNyNO1/PqaJ4LJ64h2xsDAaMqoFryqxfq5wJqDMTAwTmDMJXlJKe2JZPHNq8HAwGjNWBmnyNO4/Gq6nnRiYGD0Y1SD6TW1qm3O8qgHBgZGU0ZeYktidl6Yq7YH3pwTAwOjNSMvaa2PdlWHMJZu5BgYGO0Yuw6aj2UU+qt5ERADA+MYRl4UWx8LW381GBgYZzLWr5TV3fIwfeXZIgYGRmtGfq2tHmXlshr9FwYGRmtGXsrPQ2c1icyboFFAx8DAaMR4FdfeoYqVwYtvOrEYGBhNGfmKCl7FkJ2X3iavtRgYGI0YP1P6ryaa5YCLgYFxACNP8qqhdlfUfwPDwMDAWCDlwToPu7epIQYGxvGMJ5LI9YYBBgbGOYzkcPkPJ62Fatsg6r5iYGA0Zcw1Jle6ENWmaSFBxMDA6Mb4ABRSS6lZ18yxAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3ay66DMAxFUf7/p+m0Ugvaxw4DnJ1R1VtKFldy48dx4HVerO+//r7+vfb+/atPLlsyZMh4LeO8XVebq22UfxvfmwwZMvZhLPs6sFFyL743GTJkyCCHNrJp8lBkyJAho88gKSh5BOm1MmTIkMGTWJ6mkmoYPxouzsVlyJDxQsaqJPOJ14/0N2TIkPEqxrl0pQdEcuhE95UhQ8ZoRhoEeTOyM2DBj6cyZMjYgdFJKTtF/zRko1ArQ4aMoQweKPtBk8PSBqoMGTJmM8gBjtxmVXmuGMplyJAxmsGHJ54bGkuvlSFDxp6MWqG/0wpNxzjQI5MhQ8ZQRnrsqyWZvHlACmro/yBDhoxBDD5nlaadaWszHbZAJBkyZAxi1Mpex9JVG86QIUPGPoy0GZA2EnizMw3BcbSWIUPGyxm8HF8r3D9NlSFDxj4MslFyWCS3PPEq/nrIkCFjHKMWBGshssZG6bQMGTLGMUgZ6z7AkcIcCaa14Q90SxkyZLyc0R/V4p+sPb5Wb0GGDBkjGLXhiZTdeQcdT2XIkDGawcMfD9OdRkKtPCdDhozZjDNcvGFQK/TX0mYZMmTMZvQT3bSpycttqJshQ4aMbRhrg2NKrQXc+NdDhgwZIxjxdAZOVjvfH1wlQ4YMGbjFWGtnpmlzK+DKkCFjNIO3IQmvkzbLkCFjTwZPYnmQ5aRaQP9zNJQhQ8ZQRid17PP4SAcfy5AhQ8YgxgfUDmWrshxVxAAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

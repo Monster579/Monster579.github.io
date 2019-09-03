@@ -14,24 +14,25 @@
     
     
     
-    <title>Hello World | </title>
+    <title>jpa Specification | </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content>
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="keywords" content="jpa">
+    <meta name="description" content="使用jpa的Specification 实现动态复杂查询条件当遇到同时需要多个限制条件共同生效来查询数据时，每一次传入的参数不固定，也就是多个查询条件查询时不会传入每一个查询条件。解决时可以通过参数进行传递，此时可以变更request参数属性 （required 为 false） 但这样效率不高，requestParam会有很多写起来也很杂乱，sql写起来也会很长。因此使用Specificatio">
+<meta name="keywords" content="jpa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/hello-world - 副本/index.html">
+<meta property="og:title" content="jpa Specification">
+<meta property="og:url" content="http://yoursite.com/2019/05/18/jpa-Specification/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="使用jpa的Specification 实现动态复杂查询条件当遇到同时需要多个限制条件共同生效来查询数据时，每一次传入的参数不固定，也就是多个查询条件查询时不会传入每一个查询条件。解决时可以通过参数进行传递，此时可以变更request参数属性 （required 为 false） 但这样效率不高，requestParam会有很多写起来也很杂乱，sql写起来也会很长。因此使用Specificatio">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-08T06:51:09.820Z">
+<meta property="og:updated_time" content="2019-09-03T14:52:47.018Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="jpa Specification">
+<meta name="twitter:description" content="使用jpa的Specification 实现动态复杂查询条件当遇到同时需要多个限制条件共同生效来查询数据时，每一次传入的参数不固定，也就是多个查询条件查询时不会传入每一个查询条件。解决时可以通过参数进行传递，此时可以变更request参数属性 （required 为 false） 但这样效率不高，requestParam会有很多写起来也很杂乱，sql写起来也会很长。因此使用Specificatio">
     
         <link rel="alternate" type="application/atom+xml" title href="/atom.xml">
     
@@ -58,7 +59,7 @@
           <img src="/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname">小小程序猿</h5>
+          <h5 class="nickname">我说我不会</h5>
           <a href="mailto:cnlsyuuu@163.com" title="cnlsyuuu@163.com" class="mail">cnlsyuuu@163.com</a>
         </hgroup>
       </div>
@@ -126,7 +127,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Hello World</div>
+        <div class="flex-col header-title ellipsis">jpa Specification</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -148,13 +149,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Hello World</h1>
+        <h1 class="title">jpa Specification</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-03-08T08:14:15.716Z" itemprop="datePublished" class="page-time">
-  2019-03-08
+                <time datetime="2019-05-18T14:51:34.000Z" itemprop="datePublished" class="page-time">
+  2019-05-18
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a></li></ul>
 
             
         </h5>
@@ -171,19 +174,21 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-number">1.</span> <span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用jpa的Specification-实现动态复杂查询条件"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用jpa的Specification 实现动态复杂查询条件</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-hello-world - 副本" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-jpa-Specification" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Hello World</h1>
+        <h1 class="post-card-title">jpa Specification</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-03-08 16:14:15" datetime="2019-03-08T08:14:15.716Z" itemprop="datePublished">2019-03-08</time>
+            <time class="post-time" title="2019-05-18 22:51:34" datetime="2019-05-18T14:51:34.000Z" itemprop="datePublished">2019-05-18</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a></li></ul>
+
 
 
             
@@ -194,36 +199,28 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h1 id="使用jpa的Specification-实现动态复杂查询条件"><a href="#使用jpa的Specification-实现动态复杂查询条件" class="headerlink" title="使用jpa的Specification 实现动态复杂查询条件"></a>使用jpa的Specification 实现动态复杂查询条件</h1><p>当遇到同时需要多个限制条件共同生效来查询数据时，每一次传入的参数不固定，也就是多个查询条件查询时不会传入每一个查询条件。解决时可以通过参数进行传递，此时可以变更request参数属性 （required 为 false） 但这样效率不高，requestParam会有很多写起来也很杂乱，sql写起来也会很长。因此使用Specification实现上述要求。</p>
+<p>创建查询条件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Specification&lt;UserInfo&gt; specification = new Specification&lt;UserInfo&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public Predicate toPredicate(Root&lt;UserInfo&gt; root, CriteriaQuery&lt;?&gt; criteriaQuery, CriteriaBuilder criteriaBuilder) &#123;</span><br><span class="line">                return null;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>参数说明</p>
+<ul>
+<li>Root：查询哪个表</li>
+<li>CriteriaQuery：查询哪些字段，排序是什么</li>
+<li>CriteriaBuilder：字段之间是什么关系，如何生成一个查询条件，每一个查询条件都是什么方式</li>
+<li>Predicate（Expression）：单独每一条查询条件的详细描述</li>
+</ul>
+<hr>
+<p>运用Lambda 表达式(简化内部类的生成)简化如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Specification&lt;UserProduct&gt; specification =(root,cq,cb) -&gt; &#123;</span><br><span class="line">           List&lt;Predicate&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">           list.add(cb.equal(root.get(&quot;condition.XXX&quot;),10)); // root 为具体对象  equal(数据库字段，查询条件（Object）)</span><br><span class="line">           list.add(cb.or());</span><br><span class="line">           list.add(cb.like());</span><br><span class="line">           ...</span><br><span class="line">           return cb.and(list.toArray(new Predicate[list.size()]));</span><br><span class="line">       &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>当需要加入其它表的时候需要<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Join&lt;Object,Object&gt; userInfo = root.join(&quot;userInfo&quot;);</span><br></pre></td></tr></table></figure></p>
 
         </div>
 
         <blockquote class="post-copyright">
     
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-03-08T06:51:09.820Z" itemprop="dateUpdated">2019-03-08 14:51:09</time>
-</span><br>
-
-
-        
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/03/08/hello-world - 副本/" target="_blank" rel="external">http://yoursite.com/2019/03/08/hello-world - 副本/</a>
-        
-    </div>
-    
     <footer>
         <a href="http://yoursite.com">
-            <img src="/img/avatar.jpg" alt="小小程序猿">
-            小小程序猿
+            <img src="/img/avatar.jpg" alt="我说我不会">
+            我说我不会
         </a>
     </footer>
 </blockquote>
@@ -237,6 +234,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jpa/">jpa</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -245,7 +244,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/08/hello-world - 副本/&title=《Hello World》 — null&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/18/jpa-Specification/&title=《jpa Specification》 — null&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -255,22 +254,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/08/hello-world - 副本/&title=《Hello World》 — null&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/18/jpa-Specification/&title=《jpa Specification》 — null&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/08/hello-world - 副本/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/18/jpa-Specification/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello World》 — null&url=http://yoursite.com/2019/03/08/hello-world - 副本/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jpa Specification》 — null&url=http://yoursite.com/2019/05/18/jpa-Specification/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/08/hello-world - 副本/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/18/jpa-Specification/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -290,14 +289,21 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/07/03/show-index-字段描述/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">show index 字段描述</h4>
+      </a>
+    </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/03/08/hello-world/" id="post-next" class="post-nav-link">
+      <a href="/2019/04/03/一个程序的运行流程/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hello World</h4>
+        <h4 class="title">一个程序的运行流程</h4>
       </a>
     </div>
   
@@ -378,7 +384,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>小小程序猿 &copy; 2015 - 2019</span>
+        <p><span>我说我不会 &copy; 2015 - 2019</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -396,7 +402,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/08/hello-world - 副本/&title=《Hello World》 — null&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/05/18/jpa-Specification/&title=《jpa Specification》 — null&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -406,22 +412,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/08/hello-world - 副本/&title=《Hello World》 — null&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/05/18/jpa-Specification/&title=《jpa Specification》 — null&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/08/hello-world - 副本/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/18/jpa-Specification/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello World》 — null&url=http://yoursite.com/2019/03/08/hello-world - 副本/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jpa Specification》 — null&url=http://yoursite.com/2019/05/18/jpa-Specification/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/08/hello-world - 副本/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/05/18/jpa-Specification/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -432,7 +438,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACPUlEQVR42u3aQW7DMAwF0dz/0i7QVYDWznxSTWNqtDJS2dZLAYYS+XjgcXyP5+vncTb/510/r6/vWjxkyJBxW8ZxOc5efPZK/pzrJ/C1yZAhYx8GD7LkE8IjfyVrkyFDhozrOSSlC4JmmETKkCFDBgmvHEYC9L/9bsiQIeMmDPI4EjQ7M9+0F5chQ8YNGbXCwHuu/7y+IUOGjI9nHOEgT+AlzFrI/uVeGTJkjGZclyf5sVqaXPbLDw+yr5UhQ8ZoBg+LaYhMk0LydhkyZOzAIGXINEzzoMyfj7a4MmTIGMeovbiTSqapIdoAy5AhYwNGbaFpathZ+ovoKkOGjNGM/iEaXxavPBapMmTIGMogABJ20yOzfqH0NDWUIUPGOEatuSFtoeALTcsSMmTI2JPBm7r67V+kXhG0fciQIWMoowPoFCZXFUoX/B9kyJBxK0bngOyayg/1SIr54rhNhgwZoxmdpHBVaSGdszi3lSFDxkcy0m1n5yi/Vi5FvbcyZMjYklFrpEAbTvxl8Z8EGTJkzGakiSDHcBL5Ql8EXxkyZGzA6LSC8eOz2qLRTBkyZIxmpCld2irBC5lpWUKGDBn7MI5w8KJmJ9GMywMyZMgYzUhDJA+1qw7p0qKpDBkypjL6zV6dgmha/kSZowwZMoYyakGTB8S4eSIN+jJkyJDRSODSMidvZi0GXBkyZGzMIJ/UjszQvTJkyNiAQRK7YocsDrhpUC7uxWXIkHFDRmcD2SlbdsoAi+sbMmTI+FzGF4G1DyydzXG5AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3ay27DIBQE0P7/T7tSd1UUewacqobDKsoD+3gxgXv5+orH8TNeX59/53UkM7z79IaBgYHxWMZxOs4v/O7yr99vMfm9YWBg7MNopzuf4d3tnj+mMSoGBgZGG6D5O3eFMgYGBkZ+i8lGtF2GYmBgYLRT54x8/oRx814cAwPjgYyZxsCnX/9RfwMDA+MfM45yzITgWNEtuisMDIylGUlZf2zZl2yD8xmiOMbAwNiGkcRoG8dt4CbFu4uqIQYGxkKMdmGXTDpWPkvivmgJYGBgLMTIoy2PxXxpONZsuFgmYmBgbMBoLzn2aX7srI1+DAyMVRl3HYaYOd7aPpRoK4uBgbEcIw/B+XJ/u4UuAhcDA2M5Rlu4L8pe08dPi9YmBgbGBoyxpV5e9P9EGwADA2M3xlhQ5reV/CpnXKxtMTAwtmG0sDw073r96x0MDIxtGPlycOzoWNsMKLa1GBgYWzLml3fJ5nZm61snOgYGxmMZeYDOX7I9ftE2TTEwMFZl5E3Kd9O1hbaxnLx4TBgYGBsw2kJ8fiwj+W2yub3YBmNgYCzNyGMxudG2VTCzNcXAwNiHcZQjL9jlMZpslaP/DQwMjEUZbcDlbci28Zm3KzAwMPZkJCHbNizzEttYTA/W5zAwMB7OGAvZvG3QXr2NZgwMDIyxBVzeEG0Pc0SNTAwMDIxyATdzTi2KfgwMjA0YySa2hbUN0ZnlKQYGxtqMscZAfsm2ndke8sDAwFia8Q29u1bkrmfP4gAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
