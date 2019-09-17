@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>==,equals与hashcode | </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java基础">
+    <meta name="description" content="个人对“==”,equals与hashCode的理解1.== 和 equals判断相等通常我们回使用 == 和 equals去判断，而在使用的时候会发现二者使用的对象有所差异。 下面进行讨论 String，基本数据类型（int，long，……），引用类型 先看一段代码（String）  1234String str1 = &amp;quot;123&amp;quot;;String str2 = new Stri">
+<meta name="keywords" content="java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="==,equals与hashcode">
+<meta property="og:url" content="https://monster579.github.io/2019/08/20/equals与hashcode/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="个人对“==”,equals与hashCode的理解1.== 和 equals判断相等通常我们回使用 == 和 equals去判断，而在使用的时候会发现二者使用的对象有所差异。 下面进行讨论 String，基本数据类型（int，long，……），引用类型 先看一段代码（String）  1234String str1 = &amp;quot;123&amp;quot;;String str2 = new Stri">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-09T06:38:36.200Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="==,equals与hashcode">
+<meta name="twitter:description" content="个人对“==”,equals与hashCode的理解1.== 和 equals判断相等通常我们回使用 == 和 equals去判断，而在使用的时候会发现二者使用的对象有所差异。 下面进行讨论 String，基本数据类型（int，long，……），引用类型 先看一段代码（String）  1234String str1 = &amp;quot;123&amp;quot;;String str2 = new Stri">
+    
+        <link rel="alternate" type="application/atom+xml" title href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">我说我不会</h5>
+          <a href="mailto:cnlsyuuu@163.com" title="cnlsyuuu@163.com" class="mail">cnlsyuuu@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Monster579" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.googole.com" target="_blank">
+                <i class="icon icon-lg icon-google"></i>
+                google
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.baidu.com" target="_blank">
+                <i class="icon icon-lg icon-baidu"></i>
+                baidu
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">==,equals与hashcode</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">==,equals与hashcode</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-20T10:49:24.000Z" itemprop="datePublished" class="page-time">
+  2019-08-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#个人对“-”-equals与hashCode的理解"><span class="post-toc-number">1.</span> <span class="post-toc-text">个人对“==”,equals与hashCode的理解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-和-equals"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.== 和 equals</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下面进行讨论-String，基本数据类型（int，long，……），引用类型"><span class="post-toc-number">1.1.0.1.</span> <span class="post-toc-text">下面进行讨论 String，基本数据类型（int，long，……），引用类型</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-equals与hashcode"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.equals与hashcode</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-equals与hashcode" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">==,equals与hashcode</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-20 18:49:24" datetime="2019-08-20T10:49:24.000Z" itemprop="datePublished">2019-08-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="个人对“-”-equals与hashCode的理解"><a href="#个人对“-”-equals与hashCode的理解" class="headerlink" title="个人对“==”,equals与hashCode的理解"></a>个人对“==”,equals与hashCode的理解</h1><h2 id="1-和-equals"><a href="#1-和-equals" class="headerlink" title="1.== 和 equals"></a>1.== 和 equals</h2><p>判断相等通常我们回使用 == 和 equals去判断，而在使用的时候会发现二者使用的对象有所差异。</p>
+<h4 id="下面进行讨论-String，基本数据类型（int，long，……），引用类型"><a href="#下面进行讨论-String，基本数据类型（int，long，……），引用类型" class="headerlink" title="下面进行讨论 String，基本数据类型（int，long，……），引用类型"></a>下面进行讨论 String，基本数据类型（int，long，……），引用类型</h4><ul>
+<li>先看一段代码（String）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str1 = &quot;123&quot;;</span><br><span class="line">String str2 = new String(&quot;123&quot;);</span><br><span class="line">System.out.println(str1 == str2);      // --- false</span><br><span class="line">System.out.println(str1.equals(str2)); // --- true</span><br></pre></td></tr></table></figure>
+<p>== 用来比较内存空间，即就是字符串的空间是否为同一个，并且空间内的值是否一致。</p>
+<p>equals 则是用来比较String内容是否相同，我们可以挺过查看java.lang.String类的equals方法可以看出，equals只是比较两个String的值是否相同</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public boolean equals(<span class="built_in">Object</span> anObject) &#123;</span><br><span class="line">       <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> <span class="built_in">String</span>) &#123;</span><br><span class="line">           <span class="built_in">String</span> anotherString = (<span class="built_in">String</span>)anObject;</span><br><span class="line">           int n = value.length;</span><br><span class="line">           <span class="keyword">if</span> (n == anotherString.value.length) &#123;</span><br><span class="line">               char v1[] = value;</span><br><span class="line">               char v2[] = anotherString.value;</span><br><span class="line">               int i = <span class="number">0</span>;</span><br><span class="line">               <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                   <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                   i++;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>基本数据类型</li>
+</ul>
+<p>我们平时对于基本数据类型进行判断只是判断他们的数值是否相等。</p>
+<ul>
+<li>引用类型<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer int1 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">Integer int2 = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">System.out.println(int1 == int2);      <span class="comment">// fasle</span></span><br><span class="line">System.out.println(int1.equals(int2)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>equals比较的是地址空间是否相同，也就是栈的内容，那么这里equals方法比较之后也应该为false，<br>但是最后返回的事true，这是因为在Integer中，对equals方法进行了重写。如同上面String也是比较<br>内容，String也是对equals方法进行了重写。</p>
+<blockquote>
+<p>无论是==还是equals比较的都是栈中的内容，即对象的引<br>用，也就是比较的是两个对象的地址，所以一旦新建，或者变为了新的对象时，== 与 equals都会返回false，<br>但是为了我们的使用方便，java的引用类型都对equals方法进行了重写，只比较栈所对应堆的内容是否相同，也<br>就是对象的内容是否相同。</p>
+</blockquote>
+<h2 id="2-equals与hashcode"><a href="#2-equals与hashcode" class="headerlink" title="2.equals与hashcode"></a>2.equals与hashcode</h2><p>我们在读源码时会发现，无论是String，还是Integer都在重写equals时重写了hashcode，那么他们两者是<br>什么关系呢？<br>一般对于一个Object类来说java有以下两个规范，</p>
+<ul>
+<li><p>规范1：若重写equals(Object obj)方法，有必要重写hashcode()方法，确保通过equals(Object obj)<br>方法判断结果为true的两个对象具备相等的hashcode()返回值。说得简单点就是：“如果两个对象相同，那么<br>他们的hashcode应该 相等”。</p>
+</li>
+<li><p>规范2：如果equals(Object obj)返回false，即两个对象“不相同”，并不要求对这两个对象调用hashcode()<br>方法得到两个不相同的数。说的简单点就是：“如果两个对象不相同，他们的hashcode可能相同”。 </p>
+</li>
+</ul>
+<p>根据这两个规范，可以得到如下推论：</p>
+<ul>
+<li>1、如果两个对象equals，Java运行时环境会认为他们的hashcode一定相等。 </li>
+<li>2、如果两个对象不equals，他们的hashcode有可能相等。 </li>
+<li>3、如果两个对象hashcode相等，他们不一定equals。</li>
+<li>4、如果两个对象hashcode不相等，他们一定不equals</li>
+</ul>
+<p>根据以上可以得出：我们在重写equals时最好同时重写HashCode方法，这样可以使得类更完善。</p>
+<blockquote>
+<p>ps：hashcode方法其实是java的本地方法，也就是说返回此类的栈地址，也就是返回一个地址，而对于集合中<br>的hash类型时，hashcode方法为：key值与value值进行 ^（异或） 运算</p>
+</blockquote>
+<p>HashMap.java<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hashMap 中的hashCode方法</span><br><span class="line">public final int hashCode() &#123;</span><br><span class="line">            <span class="keyword">return</span> Objects.hashCode(key) ^ Objects.hashCode(value);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>Objects.java<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">static</span> int hashCode(<span class="built_in">Object</span> o) &#123;</span><br><span class="line">      <span class="keyword">return</span> o != <span class="literal">null</span> ? o.hashCode() : <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <footer>
+        <a href="https://monster579.github.io">
+            <img src="/img/avatar.jpg" alt="我说我不会">
+            我说我不会
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java基础/">java基础</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://monster579.github.io/2019/08/20/equals与hashcode/&title=《==,equals与hashcode》 — null&pic=https://monster579.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://monster579.github.io/2019/08/20/equals与hashcode/&title=《==,equals与hashcode》 — null&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://monster579.github.io/2019/08/20/equals与hashcode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《==,equals与hashcode》 — null&url=https://monster579.github.io/2019/08/20/equals与hashcode/&via=https://monster579.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://monster579.github.io/2019/08/20/equals与hashcode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/09/05/单例模式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">单例模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/19/javsa八大基本数据类型/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">javs八大基本数据类型</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>我说我不会 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://monster579.github.io/2019/08/20/equals与hashcode/&title=《==,equals与hashcode》 — null&pic=https://monster579.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://monster579.github.io/2019/08/20/equals与hashcode/&title=《==,equals与hashcode》 — null&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://monster579.github.io/2019/08/20/equals与hashcode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《==,equals与hashcode》 — null&url=https://monster579.github.io/2019/08/20/equals与hashcode/&via=https://monster579.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://monster579.github.io/2019/08/20/equals与hashcode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aQZKDMAwF0dz/0pntVCWQ/pJZ2GpWVIpgHgshWXq98PH+d3z+Tq6/+u/nNVf3XHDIkCFjW8b79ri/ht+fsK/O0eoyZMgYwKgtn4ba9AWRZ5MhQ4aM+8Sudj2hypAhQ0aHkRauq4K1DBkyZNRSNLIAKX3T4lmGDBnTGJ0ts6fPH+lvyJAhYyvGOzz4llna+ORB9staMmTIOJrBA1z66PzhePr4Y/hDhgwZhzLWDlh0HqsToGXIkDGBQTbxyQJ9Kt/y+xJwZciQcSijFi5XLZk2CeJ+rAwZMo5mkOI2bTR2yl0S+mXIkHEqIw2UaSJYa46SBDSYJpMhQ8ZBDD7u0Amane28yxVlyJAxjNFZOOXxkvVHoilDhowBDF7Q8tDMG6L9O8uQIWMO47nGQGf4DP1XhgwZRzNqG2E8TPPGZK18RTwZMmRszuiEVF7W8mZkGlhlyJAxgZHejid/6bZd2s6MRy5kyJBxBIOXlOmj8zDaCs0yZMgYwCDBNN3c50MVtYGw+LshQ4aMzRnxiAMApwweP1vfDRkyZGzOqG14rR0vq6WPMmTIOJXRT/jIRlgtmAZtAxkyZBzN6ATW2oAFfx3kPIbJkCFjW0aa2KWpW62gvX/fMmTImMnojFbwEbH+F6A4bCFDhoxhjDSYpuMaxdENGTJkyADbYa1wWRoLWxBwZciQsRWDJHb90S6CTIthGTJkTGDUFkg32oLpj+eamjJkyNiP8Qd1komHlChRXwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '丢失页面！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '来了，老弟!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
